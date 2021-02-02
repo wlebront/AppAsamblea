@@ -1,0 +1,73 @@
+<app-header></app-header>
+<div class="container">
+    <div class="m-5">
+        <h1 class="text-center">Listado de Asambleistas</h1>
+        <h4 class="text-center">Ultima Actualizacion 2/01/2021</h4>
+        <hr>
+    </div>
+
+    <div class="row">
+        <div class="col text-right mb-3">
+            <button routerLink="/editar/nuevo" class="btn btn-danger">
+            <i class="fa fa-plus"> </i>
+                Agregar
+           
+        </button>
+        </div>
+    </div>
+
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">provincia</th>
+                <th scope="col">municipio</th>
+                <th scope="col">circ</th>
+                <th scope="col">distritoMunicipal</th>
+                <th scope="col">nombre</th>
+                <th scope="col">cedula</th>
+                <th scope="col">descripcionOrgano</th>
+                <th scope="col">cargoElectivo</th>
+                <th scope="col">Sexo</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let asambleista of asambleistas  | paginate: { itemsPerPage: 100, currentPage:pageActual } " (click)="verPerfil(asambleista.id)">
+                <th scope="row">{{ asambleista.id }}</th>
+                <td>{{ asambleista.provincia }}</td>
+                <td>{{ asambleista.municipio }}</td>
+                <td>{{ asambleista.circ }}</td>
+                <td>{{ asambleista.distritoMunicipal }}</td>
+                <td>{{ asambleista.nombre }}</td>
+                <td>{{ asambleista.cedula }}</td>
+                <td>{{ asambleista.descripcionOrgano }}</td>
+                <td>{{ asambleista.cargoElectivo }}</td>
+                <td> {{ asambleista.sexo }}</td>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+
+    <br>
+    <br>
+
+
+    <!-- <div class="alert alert-dark text-center mt-3 animated fadeIn faster">
+        <h3 class="alert-heading">No hay registros</h3>
+        <p>
+            <i class="fa fa-exclamation fa-7x"></i>
+        </p>
+
+    </div>-->
+
+    <div *ngIf="cargando" class="alert alert-dark text-center mt-3 animated fadeIn faster">
+        <h3 class="alert-heading">Cargando data</h3>
+        <p>
+            <i class="fa fa-sync-alt fa-spin fa-7x"></i>
+        </p>
+        <p class="mb0">
+            Espere por favor
+        </p>
+    </div>
+
+</div>

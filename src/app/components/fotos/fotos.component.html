@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<div class="container mt-5 border">
+
+    <div class="m-5">
+        <h1 class="text-center">Listado de Asambleistas</h1>
+        <p class="text-center">Listado fotografico 2021</p>
+
+    </div>
+
+</div>
+
+<div class="container mt-2 border">
+
+    <h1 class="text-center">Miembros</h1>
+
+</div>
+
+<div class="container mt-2">
+
+    <div class="card-columns">
+
+        <div *ngFor=" let  fotos of nuevasFotos" class="card mb-3 puntero" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img [src]="formatImage(fotos.imagen)" class="card-img-top" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h6 class="card-title">{{fotos.nombre}}</h6>
+                        <p class="card-text">{{fotos.cedula}}</p>
+                        <p class="card-text"><small class="text-muted">{{fotos.provincia}}</small></p>
+                        <!--<button type="button" class="btn btn-outline-danger  btn-block" [routerLink]="['/perfil', fotos.id ]"> Ver mas..</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+<br>
+<br>

@@ -1,0 +1,68 @@
+<app-header></app-header>
+
+<div class="container mt-5 border">
+
+
+    <h1> Perfil Asambleista</h1>
+    <hr>
+
+    <div class="row">
+
+
+        <div class="col-md-4 border">
+            <img [src]="formatImage(asambleista.imagen)" width="350" height="400" alt="">
+            <br> <br>
+            <a href="asambleista" class="btn btn-outline-danger btn-block">Regresar</a>
+
+        </div>
+        <div class="col-md-8 ">
+
+            <h3 class="text-center"> Datos Personales</h3>
+            <hr>
+
+
+            <div class="ror">
+
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label><strong>Provincia</strong>:</label>
+                        <input type="text" class="form-control  mx-sm-2" placeholder="provincia" [(ngModel)]="asambleista.provincia" name="provincia">
+
+                        <label><strong>Municipio</strong></label>
+                        <div class="col-xs-7">
+                            <input type="text" class="form-control mx-sm-2 " placeholder="municipio" [(ngModel)]="asambleista.municipio" name="municipio">
+                        </div>
+
+
+                    </div>
+
+
+
+                </form>
+
+                <br>
+
+                <div class="form-group">
+                    <label><strong>Distrito Municipal</strong> </label>
+                    <input type="text" class="form-control" placeholder="distritoMunicipal" [(ngModel)]="asambleista.distritoMunicipal" name="distritoMunicipal">
+                </div>
+
+
+                <div class="form-group">
+                    <label> <strong>Nombre</strong></label>
+                    <input type="text" class="form-control" placeholder="nombre" required [(ngModel)]="asambleista.nombre" name="nombre">
+
+                </div>
+
+                <div class="form-group">
+                    <label><strong>Cedula</strong> </label>
+                    <input type="text" class="form-control" placeholder="cedula" required [(ngModel)]="asambleista.cedula" name="cedula">
+
+                </div>
+
+
+                <div class="form-group">
+                    <label><strong>Descripcion Organo</strong> </label>
+                    <input type="text" class="form-control" placeholder="descripcionOrgano" [(ngModel)]="asambleista.descripcionOrgano" name="descripcionOrgano">
+
+                </div>

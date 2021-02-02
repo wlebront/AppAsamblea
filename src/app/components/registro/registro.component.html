@@ -1,0 +1,32 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="\assets\PrscLogo.png" id="icon" alt="User Icon" />
+        </div>
+
+        <!-- Login Form -->
+        <form (ngSubmit)="onSubmit( f )" #f="ngForm">
+            <span *ngIf="f.submitted && f.controls['usuario'].errors" class="text-danger animated fadeIn"> "El usuario es obligatorio"</span>
+            <input type="text" id="login" class="fadeIn second" name="usuario" [(ngModel)]="usuario.usuario" minlength="3" required placeholder="Nombre usuario">
+            <div><span *ngIf="f.submitted && f.controls['password'].errors" class="text-danger animated fadeIn">"La contraseña debe estar entre 4 y 10 caracteres"</span></div>
+            <input type="password" id="password" class="fadeIn third" name="password" autocomplete="on" [(ngModel)]="usuario.password" minlength="4" required placeholder="Contraseña">
+            <div class="col clearfix">
+                <div class="form-check ml-4 mt-2 mb-3 float-left">
+                    <input [(ngModel)]="recordarme" name="checkbox" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                Recordar usuario
+                </label>
+                </div>
+            </div>
+            <input type="submit" class="fadeIn fourth" value="CREAR USUARIO">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a routerLink="/login" class="underlineHover" href="#">¿Tienes una cuenta? Inicia sesión</a>
+        </div>
+    </div>
+</div>

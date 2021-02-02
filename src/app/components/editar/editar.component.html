@@ -1,0 +1,191 @@
+<div class="container mt-5">
+
+
+    <h1 class="text-center"> Asambleista <small>crear nuevo</small></h1>
+    <hr>
+
+    <div class="row text-right">
+        <div class="col">
+            <button class="btn btn-danger" routerLink="/asambleista">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+        </div>
+    </div>
+
+    <div class="row nimated fadeIn faster">
+        <div class="col">
+            <form (ngSubmit)="guardar( f)" #f="ngForm">
+
+                <div class="form-group">
+                    <label> ID</label>
+                    <input type="text" class="form-control" placeholder="Asambleista ID" [(ngModel)]="asambleista.id" name="id" disabled="disabled">
+                    <small class="form-text text-muted">Este campo es autogenerado</small>
+                </div>
+
+                <div class="form-group">
+                    <label>provincia</label>
+                    <input type="text" class="form-control" placeholder="provincia" [(ngModel)]="asambleista.provincia" name="provincia">
+
+                </div>
+
+                <div class="form-group">
+                    <label>municipio</label>
+                    <input type="text" class="form-control" placeholder="municipio" [(ngModel)]="asambleista.municipio" name="municipio">
+
+                </div>
+
+                <div class="form-group">
+                    <label> circ</label>
+                    <input type="text" class="form-control" placeholder="circ" [(ngModel)]="asambleista.circ" name="circ">
+                </div>
+
+                <div class="form-group">
+                    <label>distritoMunicipal </label>
+                    <input type="text" class="form-control" placeholder="distritoMunicipal" [(ngModel)]="asambleista.distritoMunicipal" name="distritoMunicipal">
+                </div>
+
+
+                <div class="form-group">
+                    <label> nombre</label>
+                    <input type="text" class="form-control" placeholder="nombre" required [(ngModel)]="asambleista.nombre" name="nombre">
+
+                </div>
+
+                <div class="form-group">
+                    <label>cedula </label>
+                    <input type="text" class="form-control" placeholder="cedula" required [(ngModel)]="asambleista.cedula" name="cedula">
+
+                </div>
+
+                <!-- <div class="form-group">
+                    <label> descripcionOrgano</label>
+                    <input type="text" class="form-control" placeholder="descripcionOrgano" [(ngModel)]="asambleista.descripcionOrgano" name="descripcionOrgano">
+
+                </div>
+
+                <div class="form-group">
+                    <label> autoridad</label>
+                    <input type="text" class="form-control" placeholder="autoridad" [(ngModel)]="asambleista.autoridad" name="autoridad">
+                </div>
+
+               <div class="form-group">
+                    <label> cargoElectivo</label>
+                    <input type="text" class="form-control" placeholder="cargoElectivo" [(ngModel)]="asambleista.cargoElectivo" name="cargoElectivo">
+
+                </div>
+
+                <div class="form-group">
+                    <label> tribunalDisc</label>
+                    <input type="text" class="form-control" placeholder="tribunalDisc" [(ngModel)]="asambleista.tribunalDisc" name="tribunalDisc">
+
+                </div>
+
+                <div class="form-group">
+                    <label>sexo </label>
+                    <input type="text" class="form-control" placeholder="sexo" [(ngModel)]="asambleista.sexo" name="sexo">
+
+                </div>
+
+                <div class="form-group">
+                    <label> fechaFac</label>
+                    <input type="text" class="form-control" placeholder="fechaFac" [(ngModel)]="asambleista.fechaFac" name="fechaFac">
+
+                </div>
+
+                <div class="form-group">
+                    <label> nombreJce</label>
+                    <input type="text" class="form-control" placeholder="nombreJce" [(ngModel)]="asambleista.nombreJce" name="nombreJce">
+
+
+                </div>
+
+                <div class="form-group">
+                    <label>apellidoJce </label>
+                    <input type="text" class="form-control" placeholder="apellidoJce" [(ngModel)]="asambleista.apellidoJce" name="apellidoJce">
+
+                </div>
+
+                <div class="form-group">
+                    <label> correo</label>
+                    <input type="text" class="form-control" placeholder="correo" [(ngModel)]="asambleista.correo" name="correo">
+
+                </div>
+
+                <div class="form-group">
+                    <label>telefono </label>
+                    <input type="text" class="form-control" placeholder="telefono" [(ngModel)]="asambleista.telefono" name="telefono">
+
+                </div>
+
+                <div class="form-group">
+                    <label>telJce </label>
+                    <input type="text" class="form-control" placeholder="telJce" [(ngModel)]="asambleista.telJce" name="telJce">
+
+                </div>
+
+                <div class="form-group">
+                    <label>celular </label>
+                    <input type="text" class="form-control" placeholder="celular" [(ngModel)]="asambleista.celular" name="celular">
+                </div>
+
+                <div class="form-group">
+                    <label>celular2 </label>
+                    <input type="text" class="form-control" placeholder="celular2" [(ngModel)]="asambleista.celular2" name="celular2">
+
+                </div>
+
+                <div class="form-group">
+                    <label> direccion</label>
+                    <input type="text" class="form-control" placeholder="direccion" [(ngModel)]="asambleista.direccion" name="direccion">
+
+                </div>
+
+                <div class="form-group">
+                    <label>prov </label>
+                    <input type="text" class="form-control" placeholder="prov" [(ngModel)]="asambleista.prov" name="prov">
+
+                </div>
+
+                <div class="form-group">
+                    <label> mun</label>
+                    <input type="text" class="form-control" placeholder="mun" [(ngModel)]="asambleista.mun" name="mun">
+
+                </div>
+
+                <div class="form-group">
+                    <label>codDm </label>
+                    <input type="text" class="form-control" placeholder="codDm" [(ngModel)]="asambleista.codDm" name="codDm">
+
+                </div>
+
+                <div class="form-group">
+                    <label> codOrgano</label>
+                    <input type="text" class="form-control" placeholder="codOrgano" [(ngModel)]="asambleista.codOrgano" name="codOrgano">
+
+
+                </div>
+
+                <div class="form-group">
+                    <label> imagen</label>
+                    <input type="text" class="form-control" placeholder="imagen" [(ngModel)]="asambleista.imagen" name="imagen">
+                </div>-->
+
+
+                <hr>
+
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary w-25"> 
+                        <i class="fa fa-save"> Guardar </i>
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
