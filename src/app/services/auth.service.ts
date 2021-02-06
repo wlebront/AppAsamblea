@@ -3,6 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { AsambleistaModel } from '../models/asambleista.interface';
 import { UsuarioModel } from '../models/usuario.interface';
+import { environment } from '../../environments/environment';
+
+
+
 
 
 
@@ -12,22 +16,19 @@ import { UsuarioModel } from '../models/usuario.interface';
 export class AuthService {
 
   private url = '/api';
+  _apiUrl;
+
+  
 
   userToken: string;
 
 
 
-
-
-// crear nuevos usuarios
-// http://wlebront-001-site1.etempurl.com/api/usuarios/registro
-
-// login
-///http://wlebront-001-site1.etempurl.com/api/usuarios/Login
-
-
-
 constructor( private http: HttpClient ) { 
+
+   this._apiUrl = environment.apiBaseUrl;
+
+
   this.leerToken(); 
 
 }
@@ -48,7 +49,7 @@ localStorage.removeItem('token');
       };
 
       return this.http.post(
-        `${ this.url }/usuarios/login`,
+        this._apiUrl + `${ this.url }/usuarios/login`,
         authData  
         ).pipe(
           map( resp => {
@@ -69,7 +70,7 @@ nuevoUsuario( usuario: UsuarioModel){
   
   };
 
-  return this.http.post(
+  return this.http.post(this._apiUrl +
   `${ this.url }/usuarios/registro`,
   authData  
   ).pipe(
@@ -115,7 +116,7 @@ nuevoUsuario( usuario: UsuarioModel){
       const headers = new HttpHeaders({
         'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ3aWxsaWFtIiwibmJmIjoxNjEyMTM3NzczLCJleHAiOjE5Mjc2NzA1NzMsImlhdCI6MTYxMjEzNzc3M30.-qPITqn59p_ptYJ6bXlUk5y4EuzYePuk0wSP8IQ76-CQS195dPBiwkS8hsdZciummcWIPaPrX-uqjj-HOJ-jIg'
       });
-      return this.http.get<AsambleistaModel[]>(`${ this.url }/asambleistas`, {headers });
+      return this.http.get<AsambleistaModel[]>(this._apiUrl + `${ this.url }/asambleistas`, {headers });
 
     }
 
@@ -123,7 +124,7 @@ nuevoUsuario( usuario: UsuarioModel){
       const headers = new HttpHeaders({
         'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ3aWxsaWFtIiwibmJmIjoxNjEyMTM3NzczLCJleHAiOjE5Mjc2NzA1NzMsImlhdCI6MTYxMjEzNzc3M30.-qPITqn59p_ptYJ6bXlUk5y4EuzYePuk0wSP8IQ76-CQS195dPBiwkS8hsdZciummcWIPaPrX-uqjj-HOJ-jIg'
       });
-      return this.http.post<AsambleistaModel[]>(`${ this.url}/asambleistas`, asambleista, {headers })
+      return this.http.post<AsambleistaModel[]>(this._apiUrl + `${ this.url }/asambleistas`, asambleista, {headers })
              .pipe(
                map( (resp: any) => {
                  asambleista.id =resp.id;
@@ -138,7 +139,7 @@ actualizarAsambleista( asambleista: AsambleistaModel) {
   const headers = new HttpHeaders({
     'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ3aWxsaWFtIiwibmJmIjoxNjEyMTM3NzczLCJleHAiOjE5Mjc2NzA1NzMsImlhdCI6MTYxMjEzNzc3M30.-qPITqn59p_ptYJ6bXlUk5y4EuzYePuk0wSP8IQ76-CQS195dPBiwkS8hsdZciummcWIPaPrX-uqjj-HOJ-jIg'
   });
-  return this.http.patch(`${ this.url}/asambleistas/${ asambleista.id }`, asambleista,{headers })   
+  return this.http.patch(this._apiUrl + `${ this.url }/asambleistas/${ asambleista.id }`, asambleista,{headers })   
          
    }
 
@@ -146,7 +147,7 @@ actualizarAsambleista( asambleista: AsambleistaModel) {
     const headers = new HttpHeaders({
       'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ3aWxsaWFtIiwibmJmIjoxNjEyMTM3NzczLCJleHAiOjE5Mjc2NzA1NzMsImlhdCI6MTYxMjEzNzc3M30.-qPITqn59p_ptYJ6bXlUk5y4EuzYePuk0wSP8IQ76-CQS195dPBiwkS8hsdZciummcWIPaPrX-uqjj-HOJ-jIg'
     });
-    return this.http.get<AsambleistaModel[]>(`${ this.url }/asambleistas`, {headers });
+    return this.http.get<AsambleistaModel[]>(this._apiUrl + `${ this.url }/asambleistas`, {headers });
 
   }
  
@@ -154,7 +155,7 @@ actualizarAsambleista( asambleista: AsambleistaModel) {
     const headers = new HttpHeaders({
       'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ3aWxsaWFtIiwibmJmIjoxNjEyMTM3NzczLCJleHAiOjE5Mjc2NzA1NzMsImlhdCI6MTYxMjEzNzc3M30.-qPITqn59p_ptYJ6bXlUk5y4EuzYePuk0wSP8IQ76-CQS195dPBiwkS8hsdZciummcWIPaPrX-uqjj-HOJ-jIg'
     });
-    return this.http.get(`${ this.url }/asambleistas/${id }`, {headers });
+    return this.http.get(this._apiUrl + `${ this.url }/asambleistas/${id }`, {headers });
   }
 
 

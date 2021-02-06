@@ -4,8 +4,8 @@
 
 export const environment = {
   production: true,
-  name: "",
-  apiBaseUrl: "http://wlebront-001-site1.etempurl.com/",
+  name: "(Angular)",
+  apiBaseUrl: "https://asamblea2.herokuapp.com/",
 
 };
 
