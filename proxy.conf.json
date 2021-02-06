@@ -1,8 +1,9 @@
 {
     "/api/*": {
-        "target": "https://localhost:44392",
+        "target": "http://wlebront-001-site1.etempurl.com",
         "secure": false,
-        "logLevel": "debug"
+        "logLevel": "debug",
+        "changeOrigin": true
 
     }
 }

@@ -11,7 +11,7 @@ import { AsambleistaModel } from '../models/asambleista.interface';
 })
 export class AuthService {
 
-  private url = 'https://localhost:44392/api';
+  private url = '/api';
 
   userToken: string;
 
