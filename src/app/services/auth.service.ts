@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { UsuarioModel } from '../Models/usuario.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { AsambleistaModel } from '../models/asambleista.interface';
+import { UsuarioModel } from '../models/usuario.interface';
 
 
 
@@ -63,7 +63,7 @@ localStorage.removeItem('token');
 nuevoUsuario( usuario: UsuarioModel){
 
   const authData = {
-  usuario: usuario.usuario,
+  usuario: usuario.usuario ,
   password: usuario.password,
   returnSecureToken: true
   

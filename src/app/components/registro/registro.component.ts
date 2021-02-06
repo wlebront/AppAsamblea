@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UsuarioModel } from '../../Models/usuario.model';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { UsuarioModel } from '../../models/usuario.interface';
 
 @Component({
   selector: 'app-registro',
