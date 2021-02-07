@@ -5,17 +5,12 @@ import { AsambleistaModel } from '../models/asambleista.interface';
 import { UsuarioModel } from '../models/usuario.interface';
 import { environment } from '../../environments/environment';
 
-
-
-
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private url = '/api';
+  private url = 'api';
   _apiUrl;
 
   

@@ -1,7 +1,7 @@
 {
     "/api/*": {
         "target": "http://wlebront-001-site1.etempurl.com",
-        "secure": true,
+        "secure": false,
         "logLevel": "debug",
         "changeOrigin": true
 
