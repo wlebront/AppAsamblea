@@ -21,6 +21,9 @@ asambleistas: AsambleistaModel[];
 
   ngOnInit(): void {
 
+
+  
+
 this.cargando = true; 
 this.AuthService.getAsambleistas()
       .subscribe( resp => {
@@ -29,7 +32,17 @@ this.AuthService.getAsambleistas()
         //console.log(resp)
       });
 
+   
   }
+
+
+ /* buscarAsambleista(termino:string){
+    this.AuthService.buscarAsambleista()
+    .subscribe(res => this.asambleistas = res);
+     console.log( termino)
+
+  }  */
+
 
 
   verPerfil(id) {

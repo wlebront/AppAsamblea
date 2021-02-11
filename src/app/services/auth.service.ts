@@ -107,6 +107,16 @@ nuevoUsuario( usuario: UsuarioModel){
     
     }
 
+     /*buscador tabla asambleista
+    buscarAsambleista( ){
+
+        const headers = new HttpHeaders({
+          'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ3aWxsaWFtIiwibmJmIjoxNjEyMTM3NzczLCJleHAiOjE5Mjc2NzA1NzMsImlhdCI6MTYxMjEzNzc3M30.-qPITqn59p_ptYJ6bXlUk5y4EuzYePuk0wSP8IQ76-CQS195dPBiwkS8hsdZciummcWIPaPrX-uqjj-HOJ-jIg'
+        });
+        return this.http.get<AsambleistaModel[]>(this._apiUrl + `${ this.url }/asambleistas`, {headers });
+
+    }*/
+
     getAsambleistas() {
       const headers = new HttpHeaders({
         'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ3aWxsaWFtIiwibmJmIjoxNjEyMTM3NzczLCJleHAiOjE5Mjc2NzA1NzMsImlhdCI6MTYxMjEzNzc3M30.-qPITqn59p_ptYJ6bXlUk5y4EuzYePuk0wSP8IQ76-CQS195dPBiwkS8hsdZciummcWIPaPrX-uqjj-HOJ-jIg'
