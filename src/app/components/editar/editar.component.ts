@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-editar',
-  templateUrl: './editar.component.html',
-  styleUrls: ['./editar.component.css']
+  templateUrl: './editar.component.html'
+ 
 })
 export class EditarComponent implements OnInit {
 
@@ -55,7 +55,7 @@ export class EditarComponent implements OnInit {
       
         title:'El asambleista',
         icon: 'success', 
-        text: 'Se actualizo correctamente..',
+        text: 'Se guardo correctamente..',
       });
 
 

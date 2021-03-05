@@ -5,7 +5,7 @@ import { AsambleistaModel } from '../../models/asambleista.interface';
 @Component({
   selector: 'app-fotos',
   templateUrl: './fotos.component.html',
-  styleUrls: ['./fotos.component.css']
+  
 })
 export class FotosComponent implements OnInit {
 
