@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { AsambleistaModel } from '../../models/asambleista.interface';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 
 
@@ -10,29 +11,42 @@ import { Router } from '@angular/router';
   templateUrl: './asambleista.component.html',
   styleUrls: ['./asambleista.component.css']
 })
-export class AsambleistaComponent implements OnInit {
- cargando = false;
+export class AsambleistaComponent implements OnDestroy, OnInit {
 
-pageActual: number=1;
+  dtOptions: DataTables.Settings = {};
 
-asambleistas: AsambleistaModel[];
+  dtTrigger = new Subject<any>();
+
+  cargando = false;
+
+  asambleistas: AsambleistaModel[];
 
   constructor( private AuthService: AuthService, private router: Router) { }
-
+ 
   ngOnInit(): void {
 
-
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 100,
+      language: {
+        url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json'
+      }
+    };
   
-
-this.cargando = true; 
-this.AuthService.getAsambleistas()
+    this.cargando = true; 
+    this.AuthService.getAsambleistas()
       .subscribe( resp => {
         this.asambleistas = resp; 
         this.cargando = false; 
         //console.log(resp)
+        this.dtTrigger.next();
       });
-
    
+  }
+
+    ngOnDestroy(): void {
+    
+    this.dtTrigger.unsubscribe();
   }
 
 
@@ -43,11 +57,9 @@ this.AuthService.getAsambleistas()
 
   }  */
 
-
-
   verPerfil(id) {
-this.router.navigate(['perfil/', id]);
-//console.log( id )
+   this.router.navigate(['perfil/', id]);
+    //console.log( id )
   }
 
 }
