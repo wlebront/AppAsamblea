@@ -5,7 +5,7 @@
 export const environment = {
   production: true,
   name: "Angular",
-  apiBaseUrl: 'http://wlebront-001-site3.etempurl.com/'
+  apiBaseUrl: 'http://localhost:4200/'
 
 };
 

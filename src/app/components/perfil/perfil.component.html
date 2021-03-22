@@ -1,68 +1,271 @@
 <app-header></app-header>
 
-<div class="container mt-5 border">
 
-
-    <h1> Perfil Asambleista</h1>
-    <hr>
-
-    <div class="row">
-
-
-        <div class="col-md-4 border">
-            <img [src]="formatImage(asambleista.imagen)" width="350" height="400" alt="">
-            <br> <br>
-            <button class="btn btn-danger btn-block mb-1" routerLink="/asambleista">Regresar</button>
-
+<div class="container mb-5 mt-5" id="profile">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="float-left ">PERFIL ASAMBLEISTA
+                <sup>
+                            <span class="badge badge-primary ml-1" id="appUserRole"></span>
+                          </sup>
+            </h5>
+            <h5 class="badge badge-danger badge-outline float-right" id="fullName">Secretaría de Tecnología Prsc</h5>
         </div>
-        <div class="col-md-8 ">
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-lg-9">
+                        <fieldset class="border p-2">
+                            <legend class="w-auto">Informacion Personal</legend>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-0">
+                                        <label for="nombre" class="form-control-label">
+                                            <strong>Nombre</strong>
+                                      </label>
+                                        <div class="controls">
+                                            <input class="form-control" [(ngModel)]="asambleista.nombre" id="nombre" placeholder="Nombre Completo" type="text" name="nombre" />
 
-            <h3 class="text-center"> Datos Personales</h3>
-            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mb-0">
+                                        <label for="Cedula" class="form-control-label">
+                                            <strong>Cedula</strong>
+                                      </label>
+                                        <div class="controls">
+                                            <input class="form-control" placeholder="Cedula de Identidad" [(ngModel)]="asambleista.cedula" name="cedula" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group mb-0">
+                                        <label for="lastname" class="form-control-label">
+                                         <strong>Sexo</strong>
+                                      </label>
+                                        <div class="controls">
+                                            <input class="form-control" placeholder="sexo" [(ngModel)]="asambleista.sexo" name="sexo" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-2">
+                                    <div class="form-group mb-0">
+                                        <label for="fechaFac" class="form-control-label">
+                                            <strong>FechaNac</strong>
+                                      </label>
+                                        <div class="controls">
+                                            <input class="form-control" [(ngModel)]="asambleista.fechaFac" id="nombre" placeholder="fechaFac" type="text" name="fechaFac" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group mb-0">
+                                        <label for="descripcionOrgano" class="form-control-label">
+                                            <strong>Descripcion Organo</strong>
+                                      </label>
+                                        <div class="controls">
+                                            <input class="form-control" placeholder="descripcionOrgano" [(ngModel)]="asambleista.descripcionOrgano" name="descripcionOrgano" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="form-group mb-0">
+                                        <label for="lastname" class="form-control-label">
+                                         <strong>Autoridad</strong>
+                                      </label>
+                                        <div class="controls">
+                                            <input class="form-control" placeholder="autoridad" [(ngModel)]="asambleista.autoridad" name="autoridad" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
-            <div>
+                            <div class="row mb-3">
 
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label><strong>Provincia</strong>:</label>
-                        <input type="text" class="form-control  mx-sm-2" placeholder="provincia" [(ngModel)]="asambleista.provincia" name="provincia">
+                                <div class="col-md-5">
+                                    <div class="form-group mb-0">
+                                        <label for="cargoElectivo" class="form-control-label">
+                                            <strong>Cargo Electivo</strong>
+                                      </label>
+                                        <div class="controls">
+                                            <input class="form-control" placeholder="cargoElectivo" [(ngModel)]="asambleista.cargoElectivo" name="cargoElectivo" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <label><strong>Municipio</strong></label>
-                        <div class="col-xs-7">
-                            <input type="text" class="form-control mx-sm-2 " placeholder="municipio" [(ngModel)]="asambleista.municipio" name="municipio">
-                        </div>
+                                <div class="col-md-5">
+                                    <div class="form-group mb-0">
+                                        <label for="cargoElectivo" class="form-control-label">
+                                         <strong>Tribunal Disciplinario</strong>
+                                      </label>
+                                        <div class="controls">
+                                            <input class="form-control" placeholder="tribunalDisc" [(ngModel)]="asambleista.tribunalDisc" name="tribunalDisc" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
+                        </fieldset>
                     </div>
+                    <div class="col-lg-3">
+                        <fieldset class="border p-3 mt-4">
+                            <div class="col-12">
+                                <div class="form-group" id="profpic">
+                                    <img [src]="formatImage(asambleista.imagen)" id="imgProfile" class="img-thumbnail" alt="" />
+                                    <div class="mt-2">
 
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-lg-6">
+                        <fieldset class="border p-2">
+                            <legend class="w-auto">Direccion</legend>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="Direccion" class="form-control-label"><strong>Provincia</strong>
+                                      </label>
+                                        <div class="controls ">
+                                            <input class="form-control" placeholder="Provincia" [(ngModel)]="asambleista.provincia" name="provincia" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                </form>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="Direccion" class="form-control-label"><strong>Municipio</strong>
+                                      </label>
+                                        <div class="controls ">
+                                            <input class="form-control" placeholder="municipio" [(ngModel)]="asambleista.municipio" name="municipio" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
 
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="Direccion" class="form-control-label"><strong>Distrito Municipal</strong>
+                                      </label>
+                                        <div class="controls ">
+                                            <input class="form-control" placeholder="Distrito Municipal" [(ngModel)]="asambleista.distritoMunicipal" name="distritoMunicipal" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label for="circ" class="form-control-label"><strong> Circuncripción</strong></label>
+                                        <div class="controls ">
+                                            <input class="form-control" placeholder="circ" [(ngModel)]="asambleista.circ" name="circ" type="text" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="Direccion" class="form-control-label"><strong>Direccion</strong>
+                                      </label>
+                                        <div class="controls ">
+                                            <input class="form-control" placeholder="Direccion" [(ngModel)]="asambleista.direccion" name="direccion" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-6">
+                        <fieldset class="border p-2">
+                            <legend class="w-auto">Contacto</legend>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="correo" class="form-control-label  requiredField"><strong>Correo Electronico</strong>
+                                      </label>
+                                        <div class="controls ">
+                                            <input class="form-control" placeholder="Correo Electronico" [(ngModel)]="asambleista.correo" name="correo" type="text" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label for="celular" class="form-control-label "><strong>Celular </strong></label>
+                                        <div class="controls ">
+                                            <input class="form-control" placeholder="Celular" [(ngModel)]="asambleista.celular" name="celular" type="text" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label for="telefono" class="form-control-label "><strong>Telefono </strong></label>
+                                        <div class="controls ">
+                                            <input class="form-control" placeholder="Telefono" [(ngModel)]="asambleista.telefono" name="telefono" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label for="celular2" class="form-control-label "><strong>Celular 2 </strong></label>
+                                        <div class="controls ">
+                                            <input class="form-control" placeholder="Celular2" [(ngModel)]="asambleista.celular2" name="celular2" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="telJce" class="form-control-label "><strong>TelJce</strong></label>
+                                        <div class="controls ">
+                                            <input class="form-control" placeholder="TelJce" [(ngModel)]="asambleista.telJce" name="TelJce" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </div>
                 <br>
 
-                <div class="form-group">
-                    <label><strong>Distrito Municipal</strong> </label>
-                    <input type="text" class="form-control" placeholder="distritoMunicipal" [(ngModel)]="asambleista.distritoMunicipal" name="distritoMunicipal">
+                <div class="text-center">
+                    <button class="btn btn-success" routerLink="/asambleista">Regresar</button>
                 </div>
 
-
-                <div class="form-group">
-                    <label> <strong>Nombre</strong></label>
-                    <input type="text" class="form-control" placeholder="nombre" required [(ngModel)]="asambleista.nombre" name="nombre">
-
-                </div>
-
-                <div class="form-group">
-                    <label><strong>Cedula</strong> </label>
-                    <input type="text" class="form-control" placeholder="cedula" required [(ngModel)]="asambleista.cedula" name="cedula">
-
-                </div>
-
-
-                <div class="form-group">
-                    <label><strong>Descripcion Organo</strong> </label>
-                    <input type="text" class="form-control" placeholder="descripcionOrgano" [(ngModel)]="asambleista.descripcionOrgano" name="descripcionOrgano">
-
-                </div>
+            </form>
+        </div>
+    </div>
+</div>
